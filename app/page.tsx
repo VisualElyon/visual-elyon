@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { motion } from "framer-motion";
 
@@ -88,13 +89,13 @@ export default function Home() {
             Nuestros Servicios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: "✦", titulo: "Diseño Gráfico", desc: "Flyers, banners, material publicitario y diseño visual corporativo que impacta." },
-              { icon: "◈", titulo: "Branding e Identidad", desc: "Logos, identidad corporativa, paletas de colores y manual básico de marca." },
-              { icon: "◉", titulo: "Redes Sociales", desc: "Publicaciones, historias, portadas y contenido visual para tu comunidad." },
-              { icon: "◫", titulo: "Catálogos Digitales", desc: "Catálogos interactivos y presentación profesional de productos y servicios." },
-              { icon: "◻", titulo: "Desarrollo Web", desc: "Landing pages, sitios corporativos y portafolios digitales de alto impacto." },
-              { icon: "◆", titulo: "Marketing Digital", desc: "Facebook Ads, Instagram Ads y campañas publicitarias que generan resultados." },
+                        {[
+              { imagen: "/Diseño_Grafico.png", titulo: "Diseño Gráfico", desc: "Flyers, banners, material publicitario y diseño visual corporativo que impacta." },
+              { imagen: "/Branding.png", titulo: "Branding e Identidad", desc: "Logos, identidad corporativa, paletas de colores y manual básico de marca." },
+              { imagen: "/Redes_Sociales.png", titulo: "Redes Sociales", desc: "Publicaciones, historias, portadas y contenido visual para tu comunidad." },
+              { imagen: "/CatalogosDigitales.png", titulo: "Catálogos Digitales", desc: "Catálogos interactivos y presentación profesional de productos y servicios." },
+              { imagen: "/Desarrollo_Web.png", titulo: "Desarrollo Web", desc: "Landing pages, sitios corporativos y portafolios digitales de alto impacto." },
+              { imagen: "/marketing_digital.png", titulo: "Marketing Digital", desc: "Facebook Ads, Instagram Ads y campañas publicitarias que generan resultados." },
             ].map((servicio, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 40 }}
@@ -104,7 +105,14 @@ export default function Home() {
                 whileHover={{ scale: 1.03 }}
                 style={{ backgroundColor: "#0c1f2c", border: "1px solid #d4af3730" }}
                 className="p-8 rounded-2xl hover:border-[#d4af37] transition-all duration-300 cursor-pointer">
-                <span style={{ color: "#d4af37" }} className="text-3xl mb-4 block">{servicio.icon}</span>
+                <div className="h-40 flex items-center justify-center mb-6 rounded-xl overflow-hidden"
+                  style={{ backgroundColor: "#0a1a25" }}>
+                  <img
+                    src={servicio.imagen}
+                    alt={servicio.titulo}
+                    className="h-36 w-auto object-contain"
+                  />
+                </div>
                 <h3 style={{ fontFamily: "var(--font-montserrat)", color: "#f4f4f2" }}
                   className="text-lg font-semibold mb-3">{servicio.titulo}</h3>
                 <p style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
