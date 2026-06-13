@@ -7,7 +7,7 @@ export default function Home() {
     <main className="min-h-screen" style={{ backgroundColor: "#0c1f2c" }}>
 
       {/* ========== NAVBAR ========== */}
-      <nav style={{ backgroundColor: "#0c1f2c", borderBottom: "1px solid #d4af3730" }}
+      <nav style={{ backgroundColor: "#0c1f2c", borderBottom: "2px solid #d4af3740" }}
         className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <img src="/logo.png" alt="Visual Elyon" className="h-24 w-auto" />
@@ -26,9 +26,26 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ========== HERO ========== */}
-      <section className="pt-40 pb-28 px-6">
-        <div className="max-w-6xl mx-auto">
+{/* ========== HERO ========== */}
+      <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
+
+        {/* Video de fondo */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0">
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Capa oscura encima del video */}
+        <div className="absolute inset-0 z-10"
+          style={{ backgroundColor: "#0c1f2c80" }} />
+
+        {/* Contenido encima del video */}
+        <div className="max-w-6xl mx-auto relative z-20 py-40">
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -37,27 +54,29 @@ export default function Home() {
             className="text-xs font-semibold uppercase tracking-widest mb-6">
             Diseño · Branding · Tecnología
           </motion.p>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{ fontFamily: "var(--font-playfair)", color: "#f4f4f2" }}
             className="text-5xl md:text-7xl font-bold leading-tight mb-8">
-            Impulsamos tu marca<br />
-            con{" "}
-            <span style={{ color: "#d4af37" }}>diseño, creatividad</span><br />
-            y tecnología.
+            Haz que tu negocio<br />
+            <span style={{ color: "#d4af37" }}>destaque y atraiga</span><br />
+            más clientes.
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
+            style={{ color: "#f4f4f2", fontFamily: "var(--font-inter)" }}
             className="text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-            En Visual Elyon ayudamos a emprendedores, negocios y organizaciones
-            a destacar mediante branding, diseño gráfico, marketing digital
-            y soluciones web profesionales.
+            En Visual Elyon diseñamos marcas, catálogos digitales, campañas
+            publicitarias y sitios web profesionales que fortalecen tu presencia
+            digital y potencian el crecimiento de tu negocio.
           </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,11 +88,12 @@ export default function Home() {
               Ver Servicios
             </a>
             <a href="#contacto"
-              style={{ border: "1px solid #d4af37", color: "#d4af37", fontFamily: "var(--font-montserrat)" }}
+              style={{ border: "1px solid #f4f4f2", color: "#f4f4f2", fontFamily: "var(--font-montserrat)" }}
               className="px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:opacity-70 transition-opacity text-center">
               Solicitar Cotización
             </a>
           </motion.div>
+
         </div>
       </section>
 
@@ -103,7 +123,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.03 }}
-                style={{ backgroundColor: "#0c1f2c", border: "1px solid #d4af3730" }}
+                style={{ backgroundColor: "#0c1f2c", border: "2px solid #d4af3740" }}
                 className="p-8 rounded-2xl hover:border-[#d4af37] transition-all duration-300 cursor-pointer">
                 <div className="h-40 flex items-center justify-center mb-6 rounded-xl overflow-hidden"
                   style={{ backgroundColor: "#0a1a25" }}>
@@ -136,29 +156,65 @@ export default function Home() {
           </h2>
           <p style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
             className="text-lg text-center max-w-3xl mx-auto mb-20 leading-relaxed">
-            Somos una marca especializada en soluciones visuales y digitales,
-            orientadas a fortalecer la imagen, presencia y crecimiento de
-            emprendedores, negocios, organizaciones y profesionales.
+            En Visual Elyon transformamos ideas en soluciones visuales y digitales
+            que fortalecen la imagen, presencia y crecimiento de emprendedores,
+            empresas y organizaciones. Combinamos creatividad, estrategia y tecnología
+            para desarrollar proyectos que conectan con las personas, generan confianza
+            y aportan valor a cada marca.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {[
-              { icon: "◈", titulo: "Nuestra Misión", texto: "Ayudar a emprendedores, negocios y organizaciones a destacar en el entorno digital mediante diseño, creatividad y tecnología, transformando su visión en una identidad visual poderosa." },
-              { icon: "◉", titulo: "Nuestra Visión", texto: "Ser la agencia de diseño y soluciones digitales de referencia para emprendedores y negocios en crecimiento, reconocida por nuestra calidad, creatividad y compromiso con cada cliente." },
-            ].map((item, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-8 rounded-2xl"
-                style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730" }}>
-                <span style={{ color: "#d4af37" }} className="text-3xl mb-4 block">{item.icon}</span>
-                <h3 style={{ fontFamily: "var(--font-playfair)", color: "#f4f4f2" }}
-                  className="text-2xl font-bold mb-4">{item.titulo}</h3>
+
+            {/* MISIÓN */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden"
+              style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740" }}>
+              <div className="h-80 overflow-hidden">
+                <img src="/mision.jpg" alt="Nuestra Misión"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 30%" }} />
+              </div>
+              <div className="p-8">
+                <h3 style={{ fontFamily: "var(--font-playfair)", color: "#d4af37" }}
+                  className="text-2xl font-bold mb-4">Nuestra Misión</h3>
                 <p style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
-                  className="leading-relaxed">{item.texto}</p>
-              </motion.div>
-            ))}
+                  className="leading-relaxed">
+                  Impulsar el crecimiento de nuestros clientes mediante soluciones
+                  de branding, diseño gráfico, marketing digital y desarrollo web,
+                  creando experiencias visuales que transmitan profesionalismo,
+                  credibilidad y diferenciación en el mercado.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* VISIÓN */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="rounded-2xl overflow-hidden"
+              style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740" }}>
+              <div className="h-80 overflow-hidden">
+                <img src="/vision.jpg" alt="Nuestra Visión"
+                  className="w-full h-full object-cover" />
+              </div>
+              <div className="p-8">
+                <h3 style={{ fontFamily: "var(--font-playfair)", color: "#d4af37" }}
+                  className="text-2xl font-bold mb-4">Nuestra Visión</h3>
+                <p style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
+                  className="leading-relaxed">
+                  Ser una agencia líder en soluciones visuales y digitales,
+                  reconocida por la calidad de nuestros proyectos, la innovación
+                  constante y el compromiso con el éxito de cada cliente,
+                  contribuyendo al crecimiento de marcas con identidad y propósito.
+                </p>
+              </div>
+            </motion.div>
+
           </div>
           <h3 style={{ fontFamily: "var(--font-playfair)", color: "#f4f4f2" }}
             className="text-2xl font-bold text-center mb-10">Nuestros Valores</h3>
@@ -176,7 +232,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
                 className="text-center p-6 rounded-2xl"
-                style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730" }}>
+                style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740" }}>
                 <span style={{ color: "#d4af37" }} className="text-2xl mb-3 block">{item.icono}</span>
                 <p style={{ fontFamily: "var(--font-montserrat)", color: "#f4f4f2" }}
                   className="text-sm font-semibold uppercase tracking-widest">{item.valor}</p>
@@ -211,7 +267,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
                 className="text-center p-6 rounded-2xl"
-                style={{ backgroundColor: "#0c1f2c", border: "1px solid #d4af3730" }}>
+                style={{ backgroundColor: "#0c1f2c", border: "2px solid #d4af3740" }}>
                 <span style={{ color: "#d4af37", fontFamily: "var(--font-playfair)" }}
                   className="text-4xl font-bold mb-4 block">{paso.numero}</span>
                 <h3 style={{ fontFamily: "var(--font-montserrat)", color: "#f4f4f2" }}
@@ -256,7 +312,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.03 }}
                 className="rounded-2xl overflow-hidden cursor-pointer"
-                style={{ border: "1px solid #d4af3730" }}>
+                style={{ border: "2px solid #d4af3740" }}>
                 <div className="h-52 flex items-center justify-center relative"
                   style={{ backgroundColor: "#0a1a25" }}>
                   <span style={{ color: "#d4af3750", fontFamily: "var(--font-playfair)" }}
@@ -306,7 +362,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.2 }}
                 viewport={{ once: true }}
                 className="p-8 rounded-2xl"
-                style={{ backgroundColor: "#0c1f2c", border: "1px solid #d4af3730" }}>
+                style={{ backgroundColor: "#0c1f2c", border: "2px solid #d4af3740" }}>
                 <span style={{ color: "#d4af37" }} className="text-5xl font-bold leading-none block mb-4">"</span>
                 <p style={{ color: "#c4b7cb", fontFamily: "var(--font-inter)" }}
                   className="text-sm leading-relaxed mb-8">{testimonio.comentario}</p>
@@ -353,20 +409,20 @@ export default function Home() {
                     className="text-xs uppercase tracking-widest mb-2 block">Nombre completo</label>
                   <input type="text" placeholder="Tu nombre"
                     className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                    style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
+                    style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
                 </div>
                 <div>
                   <label style={{ color: "#c4b7cb", fontFamily: "var(--font-montserrat)" }}
                     className="text-xs uppercase tracking-widest mb-2 block">Correo electrónico</label>
                   <input type="email" placeholder="tu@correo.com"
                     className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                    style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
+                    style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
                 </div>
                 <div>
                   <label style={{ color: "#c4b7cb", fontFamily: "var(--font-montserrat)" }}
                     className="text-xs uppercase tracking-widest mb-2 block">Servicio de interés</label>
                   <select className="w-full px-4 py-3 rounded-xl text-sm outline-none"
-                    style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730", color: "#f4f4f2", fontFamily: "var(--font-inter)" }}>
+                    style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740", color: "#f4f4f2", fontFamily: "var(--font-inter)" }}>
                     <option value="">Selecciona un servicio</option>
                     <option>Diseño Gráfico</option>
                     <option>Branding e Identidad Visual</option>
@@ -381,7 +437,7 @@ export default function Home() {
                     className="text-xs uppercase tracking-widest mb-2 block">Mensaje</label>
                   <textarea placeholder="Cuéntanos sobre tu proyecto..." rows={4}
                     className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
-                    style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
+                    style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740", color: "#f4f4f2", fontFamily: "var(--font-inter)" }} />
                 </div>
                 <button
                   style={{ backgroundColor: "#d4af37", color: "#0c1f2c", fontFamily: "var(--font-montserrat)" }}
@@ -399,7 +455,7 @@ export default function Home() {
               ].map((contacto, i) => (
                 <a key={i} href={contacto.link} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-4 p-6 rounded-2xl hover:border-[#d4af37] transition-all duration-300"
-                  style={{ backgroundColor: "#0a1a25", border: "1px solid #d4af3730" }}>
+                  style={{ backgroundColor: "#0a1a25", border: "2px solid #d4af3740" }}>
                   <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: "#d4af3720", border: "1px solid #d4af3750" }}>
                     <span style={{ color: "#d4af37" }} className="text-lg font-bold">{contacto.icono}</span>
@@ -418,7 +474,7 @@ export default function Home() {
       </section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="py-16 px-6" style={{ backgroundColor: "#020d14", borderTop: "1px solid #d4af3730" }}>
+      <footer className="py-16 px-6" style={{ backgroundColor: "#020d14", borderTop: "2px solid #d4af3740" }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
